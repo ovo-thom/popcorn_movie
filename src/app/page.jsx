@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <div className="h-screen text-[#FFFFFF] bg-[#121212]">
       {/* <h1>{movie.title}</h1> */}
-      <Header />
+      {/* <Header /> */}
     </div>
   );
 }
