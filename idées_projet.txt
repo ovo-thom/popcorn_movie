@@ -1,0 +1,7 @@
+Élément	Couleur	Description
+Fond principal	#0F0F0F ou #121212	Noir profond moderne
+Texte principal	#FFFFFF	Texte clair
+Accent (boutons)	#E50914 (rouge Netflix) ou #FF005C (rose/rouge flashy)	Pour call to action ou hover
+Secondaire	#999999 ou #BBBBBB	Pour descriptions
+Cartes de films	#1F1F1F ou #222222	Fond des cartes
+Hover / sélection	#292929 ou un léger #333	Au survol d'une carte
