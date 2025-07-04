@@ -12,6 +12,7 @@ export default async function PopularMovies() {
       </h2>
       <div className=" w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-slate-800 p-4 rounded-lg mb-4">
         {popularMovies.results.slice(0, 8).map((movie) => (
+          <Link key={movie.id} href={`/popular/${movie.id}`}>
           <div
             key={movie.id}
             className="bg-gray-800 rounded overflow-hidden shadow-lg shadow-neutral-400 hover:scale-105 transition-transform duration-200"
@@ -28,6 +29,7 @@ export default async function PopularMovies() {
               <p className="text-yellow-400 text-sm">⭐ {movie.vote_average}</p>
             </div>
           </div>
+          </Link>
         ))}
       </div>
       <Link
