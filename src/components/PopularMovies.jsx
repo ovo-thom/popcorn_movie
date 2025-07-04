@@ -1,4 +1,6 @@
 import { fetchPopularMovies } from "../../lib/tmdb";
+import { MdSkipNext } from "react-icons/md";
+import Link from "next/link";
 
 export default async function PopularMovies() {
   const popularMovies = await fetchPopularMovies();
@@ -8,7 +10,7 @@ export default async function PopularMovies() {
       <h2 className="font-title text-lg sm:text-xl md:text-3xl mb-4 text-white tracking-wide">
         Films populaires
       </h2>
-      <div className=" w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-slate-700 p-4 rounded-lg mb-4">
+      <div className=" w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-slate-800 p-4 rounded-lg mb-4">
         {popularMovies.results.slice(0, 8).map((movie) => (
           <div
             key={movie.id}
@@ -28,6 +30,13 @@ export default async function PopularMovies() {
           </div>
         ))}
       </div>
+      <Link
+        href="/popular"
+        className="flex items-center gap-2 mb-5 hover:text-slate-300 duration-300"
+      >
+        <button className="text-base sm:text-xl">Voir plus</button>
+        <MdSkipNext className="text-xl" />
+      </Link>
     </div>
   );
 }
