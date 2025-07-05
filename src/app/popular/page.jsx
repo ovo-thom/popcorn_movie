@@ -1,40 +1,60 @@
+import Link from "next/link";
+import Image from "next/image";
 import { fetchPopularMovies } from "../../../lib/tmdb";
 
 export default async function PopularPage() {
   const page1 = await fetchPopularMovies(1);
   const page2 = await fetchPopularMovies(2);
 
-  const combinedMovies = [...page1.results, ...page2.results];
-
   const uniqueMovies = Array.from(
-    new Map(combinedMovies.map((movie) => [movie.id, movie])).values()
+    new Map([...page1.results, ...page2.results].map((m) => [m.id, m])).values()
   );
 
   return (
-    <div className="bg-[#121212] flex flex-col items-center pt-16 px-5">
-      <h2 className="font-title text-lg sm:text-xl md:text-3xl mb-4 text-white tracking-wide">
-        Films populaires
-      </h2>
-      <div className=" w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-slate-800 p-4 rounded-lg mb-4">
-        {uniqueMovies.map((movie) => (
-          <div
-            key={movie.id}
-            className="bg-gray-800 rounded overflow-hidden shadow-lg shadow-neutral-400 hover:scale-105 transition-transform duration-200"
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-              alt={movie.title}
-              className="w-full h-auto"
-            />
-            <div className="p-2">
-              <h3 className="text-white font-semibold text-sm">
-                {movie.title}
-              </h3>
-              <p className="text-yellow-400 text-sm">⭐ {movie.vote_average}</p>
-            </div>
-          </div>
-        ))}
+    <section className="bg-[#121212] w-full">
+      <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col items-center">
+        <h1 className="font-title text-2xl sm:text-3xl md:text-4xl text-white mb-6 tracking-wide">
+          Tous les films populaires
+        </h1>
+        <div
+          className="
+          w-full
+          grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6
+          gap-6
+        "
+        >
+          {uniqueMovies.map((movie) => (
+            <Link
+              key={movie.id}
+              href={`/popular/${movie.id}`}
+              className="group"
+            >
+              <div
+                className="
+                bg-gray-800 rounded-xl overflow-hidden shadow-md
+                transition-transform duration-200 group-hover:scale-105
+              "
+              >
+                <Image
+                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                  alt={`${movie.title} poster`}
+                  width={300}
+                  height={450}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="p-2">
+                  <h3 className="text-white font-semibold text-sm truncate">
+                    {movie.title}
+                  </h3>
+                  <p className="text-yellow-400 text-xs sm:text-sm">
+                    ⭐ {movie.vote_average}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
