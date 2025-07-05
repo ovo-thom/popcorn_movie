@@ -9,7 +9,9 @@ export default async function Page({ params }) {
   return (
     <section className="flex-1 flex flex-col max-w-6xl mx-auto md:flex-row gap-6 p-6 w-full">
       <div className="max-w-6xl mx-auto px-4 py-4 sm:py-8">
-        <BackLink className="mb-6 text-gray-100 hover:text-gray-300 duration-200">← Retour aux films populaires</BackLink>
+        <BackLink className="mb-6 text-gray-100 hover:text-gray-300 duration-200">
+          ← Retour aux films populaires
+        </BackLink>
         <div className="flex flex-col md:flex-row gap-10">
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

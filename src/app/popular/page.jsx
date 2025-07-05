@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { fetchPopularMovies } from "../../../lib/tmdb";
+import BackLink from "@/components/BackLink";
 
 export default async function PopularPage() {
   const page1 = await fetchPopularMovies(1);
@@ -16,6 +17,9 @@ export default async function PopularPage() {
         <h1 className="font-title text-2xl sm:text-3xl md:text-4xl text-white mb-6 tracking-wide">
           Tous les films populaires
         </h1>
+        <BackLink className="mb-6 text-gray-100 hover:text-gray-300 duration-200 mr-auto">
+          ← Page d'accueil
+        </BackLink>
         <div
           className="
           w-full
