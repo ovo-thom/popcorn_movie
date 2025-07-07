@@ -1,6 +1,7 @@
 import { fetchPopularMovies } from "../../lib/tmdb";
-import { MdSkipNext } from "react-icons/md";
+
 import Link from "next/link";
+import SeeMoreButton from "./SeeMoreButton";
 
 export default async function PopularMovies() {
   const popularMovies = await fetchPopularMovies();
@@ -10,7 +11,7 @@ export default async function PopularMovies() {
       <h2 className="font-title text-lg sm:text-xl md:text-3xl text-white tracking-wide mb-2">
         Films populaires
       </h2>
-      <div className="w-20 h-[3px] bg-red mb-4 rounded"></div>
+      <div className="w-20 h-[3px] bg-red1 mb-4 rounded"></div>
       <div className=" w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-[#1a1a1a] p-4 rounded-lg mb-4">
         {popularMovies.results.slice(0, 8).map((movie) => (
           <Link key={movie.id} href={`/popular/${movie.id}`}>
@@ -36,9 +37,7 @@ export default async function PopularMovies() {
         ))}
       </div>
       <Link href="/popular">
-        <button className="flex items-center gap-2 px-4 py-2 bg-red hover:bg-red-600 text-white rounded transition">
-          Voir plus <MdSkipNext className="text-xl" />
-        </button>
+        <SeeMoreButton variant="red" />
       </Link>
     </div>
   );

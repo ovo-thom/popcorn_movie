@@ -8,8 +8,8 @@ module.exports = {
         body: ["Inter", "sans-serif"],
       },
       colors: {
-        blue: "#06B6D4",
-        red: "#FF005C",
+        blue1: "#06B6D4",
+        red1: "#FF005C",
       },
     },
   },

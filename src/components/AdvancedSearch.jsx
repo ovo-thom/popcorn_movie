@@ -6,9 +6,9 @@ import {
   fetchDiscoverMovies,
 } from "../../lib/tmdb";
 import Link from "next/link";
+import SeeMoreButton from "./SeeMoreButton";
 
 export default function AdvancedSearch() {
-
   const [genres, setGenres] = useState([]);
   const years = generateYears();
   const [selectedGenre, setGenre] = useState("");
@@ -62,17 +62,17 @@ export default function AdvancedSearch() {
   };
 
   return (
-    <section className="min-h-screen py-16 border-t border-blue/50 bg-[#121212] text-gray-50">
+    <section className="min-h-screen py-16 border-t border-blue1/50 bg-[#121212] text-gray-50">
       <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
         <h2 className="font-title text-2xl md:text-3xl my-8">
           Recherche avancée
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <div className="grid grid-cols-3 max-w-80 sm:max-w-5xl gap-4 mb-8">
           <select
             value={selectedGenre}
             onChange={(e) => setGenre(e.target.value)}
-            className="px-4 py-1 rounded-lg border-2 border-red bg-gray-800 outline-none"
+            className="px-4 py-1 rounded-lg border-2 border-red1 bg-gray-800 outline-none"
           >
             <option value="">Genre</option>
             {genres.map((g) => (
@@ -85,7 +85,7 @@ export default function AdvancedSearch() {
           <select
             value={selectedYear}
             onChange={(e) => setYear(e.target.value)}
-            className="px-4 py-1 rounded-lg border-2 border-red bg-gray-800 outline-none"
+            className="px-4 py-1 rounded-lg border-2 border-red1 bg-gray-800 outline-none"
           >
             <option value="">Année</option>
             {years.map((y) => (
@@ -98,7 +98,7 @@ export default function AdvancedSearch() {
           <select
             value={selectedSort}
             onChange={(e) => setSort(e.target.value)}
-            className="px-4 py-1 rounded-lg border-2 border-red bg-gray-800 outline-none"
+            className="px-4 py-1 rounded-lg border-2 border-red1 bg-gray-800 outline-none"
           >
             <option value="">Trier par</option>
             <option value="popularity.desc">Popularité ↓</option>
@@ -108,10 +108,11 @@ export default function AdvancedSearch() {
             <option value="release_date.desc">Sortie ↓</option>
             <option value="release_date.asc">Sortie ↑</option>
           </select>
-
+        </div>
+        <div>
           <button
             onClick={handleSearch}
-            className="bg-blue rounded-lg px-6 py-2 hover:bg-cyan-600 transition"
+            className="bg-blue1 rounded-lg px-6 py-2 mb-10 hover:bg-cyan-600 transition"
           >
             {loading && !movies.length ? "Recherche…" : "Rechercher"}
           </button>
@@ -141,14 +142,7 @@ export default function AdvancedSearch() {
               ))}
             </div>
 
-            {!loading && (
-              <button
-                onClick={handleMore}
-                className="mt-4 bg-blue px-4 py-2 rounded hover:bg-cyan-600 transition"
-              >
-                Voir plus
-              </button>
-            )}
+            {!loading && <SeeMoreButton variant="blue" onClick={handleMore} />}
           </>
         )}
 
