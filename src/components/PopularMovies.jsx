@@ -7,12 +7,12 @@ export default async function PopularMovies() {
   const popularMovies = await fetchPopularMovies();
 
   return (
-    <div className="flex flex-col items-center py-16 px-5">
+    <section className="flex flex-col items-center py-8 md:py-16 px-5">
       <h2 className="font-title text-lg sm:text-xl md:text-3xl text-white tracking-wide mb-2">
         Films populaires
       </h2>
       <div className="w-20 h-[3px] bg-red1 mb-4 rounded"></div>
-      <div className=" w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-[#1a1a1a] p-4 rounded-lg mb-4">
+      <div className=" max-w-6xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-[#1a1a1a] p-4 rounded-lg mb-4">
         {popularMovies.results.slice(0, 8).map((movie) => (
           <Link key={movie.id} href={`/popular/${movie.id}`}>
             <div
@@ -39,6 +39,6 @@ export default async function PopularMovies() {
       <Link href="/popular">
         <SeeMoreButton variant="red" />
       </Link>
-    </div>
+    </section>
   );
 }

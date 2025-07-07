@@ -62,13 +62,13 @@ export default function AdvancedSearch() {
   };
 
   return (
-    <section className="min-h-screen py-16 border-t border-blue1/50 bg-[#121212] text-gray-50">
-      <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
-        <h2 className="font-title text-2xl md:text-3xl my-8">
+    <section className="py-8 md:py-16 border-t border-blue1/50 bg-[#121212] text-gray-50">
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+        <h2 className="font-title text-2xl md:text-3xl mb-2">
           Recherche avancée
         </h2>
-
-        <div className="grid grid-cols-3 max-w-80 sm:max-w-5xl gap-4 mb-8">
+<div className="w-20 h-[3px] bg-red1 mb-4 rounded"></div>
+        <div className="grid grid-cols-3 max-w-80 sm:max-w-5xl gap-4 my-8">
           <select
             value={selectedGenre}
             onChange={(e) => setGenre(e.target.value)}
@@ -120,10 +120,10 @@ export default function AdvancedSearch() {
 
         {movies.length > 0 && (
           <>
-            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 bg-[#1b1b1b] p-4 rounded-lg mb-4 ring-1 ring-cyan-700/25">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-5 bg-[#1b1b1b] p-4 rounded-lg mb-4 ring-1 ring-cyan-700/25">
               {movies.map((m) => (
                 <Link key={m.id} href={`/movie/${m.id}`}>
-                  <div className="bg-[#222222] rounded overflow-hidden shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 transition">
+                  <div className="bg-[#222222] rounded overflow-hidden shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 transition">
                     <img
                       src={`https://image.tmdb.org/t/p/w300${m.poster_path}`}
                       alt={m.title}
