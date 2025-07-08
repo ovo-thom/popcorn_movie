@@ -112,7 +112,7 @@ export default function AdvancedSearch() {
         <div>
           <button
             onClick={handleSearch}
-            className="bg-blue1 rounded-lg px-6 py-2 mb-10 hover:bg-cyan-600 transition"
+            className="bg-blue1 rounded-lg px-3 py-1 sm:px-6 sm:py-2 mb-10 hover:bg-cyan-600 transition"
           >
             {loading && !movies.length ? "Recherche…" : "Rechercher"}
           </button>

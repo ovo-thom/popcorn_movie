@@ -8,7 +8,7 @@ export default async function PopularMovies() {
 
   return (
     <section className="flex flex-col items-center py-8 md:py-16 px-5">
-      <h2 className="font-title text-lg sm:text-xl md:text-3xl text-white tracking-wide mb-2">
+      <h2 className="font-title text-2xl md:text-3xl text-white tracking-wide mb-2">
         Films populaires
       </h2>
       <div className="w-20 h-[3px] bg-red1 mb-4 rounded"></div>
