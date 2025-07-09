@@ -11,10 +11,10 @@ export default function NowPlayingSlider({ movies }) {
     <Swiper
       modules={[Navigation, Autoplay]}
       navigation
-       loop                                      // 3️⃣  boucle infinie
-      autoplay={{                               // 4️⃣  options autoplay
-        delay: 3000,            // 3 s entre chaque slide
-        disableOnInteraction: false, // continue même après un clic/drag
+       loop                                      
+      autoplay={{                               
+        delay: 3000,           
+        disableOnInteraction: false, 
       }}
       spaceBetween={16}
       slidesPerView={2}
