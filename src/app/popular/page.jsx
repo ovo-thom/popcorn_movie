@@ -28,12 +28,12 @@ export default async function PopularPage() {
         "
         >
           {uniqueMovies.map((movie) => (
-            <MovieCard 
-    key={movie.id} 
-    movie={movie} 
-    linkPath={`/popular/${movie.id}`}
-    size="medium"
-  />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              linkPath={`/popular/${movie.id}`}
+              size="medium"
+            />
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ import {
 } from "../../lib/tmdb";
 import SeeMoreButton from "./SeeMoreButton";
 import MovieCard from "./MovieCard";
+import SectionTitle from "./SectionTitle";
 
 export default function AdvancedSearch() {
   const [genres, setGenres] = useState([]);
@@ -64,10 +65,7 @@ export default function AdvancedSearch() {
   return (
     <section className="py-8 px-5 md:py-10 border-t border-blue1/50 bg-[#121212] text-gray-50">
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
-        <h2 className="font-title text-2xl md:text-3xl mb-2">
-          Recherche avancée
-        </h2>
-        <div className="w-20 h-[3px] bg-red1 mb-4 rounded"></div>
+        <SectionTitle>Recherche avancée</SectionTitle>
         <div className="grid grid-cols-3 max-w-80 sm:max-w-5xl gap-4 my-8">
           <select
             value={selectedGenre}
