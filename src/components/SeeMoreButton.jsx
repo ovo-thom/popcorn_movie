@@ -13,7 +13,7 @@ export default function SeeMoreButton({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 px-4 py-2  ${variants[variant]} text-white rounded duration-200`}
+      className={`flex items-center gap-2 px-4 py-2 mt-3 ${variants[variant]} text-white rounded duration-200`}
     >
       {children} <MdSkipNext className="text-xl" />
     </button>

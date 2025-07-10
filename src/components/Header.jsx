@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
 import { LuPopcorn } from "react-icons/lu";
 import { FaRegHeart } from "react-icons/fa";
 import Link from "next/link";
 import { useState, useCallback } from "react";
 import { fetchSearchMovies } from "../../lib/tmdb";
-
 
 function debounce(func, delay) {
   let timeoutId;
@@ -16,7 +15,7 @@ function debounce(func, delay) {
 }
 
 export default function Header() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
@@ -75,7 +74,7 @@ export default function Header() {
           className="w-full h-8 rounded-xl placeholder:text-sm text-sm sm:text-base px-2 text-black bg-gray-200 outline-none focus:border-2 duration-100 focus:border-stone-400"
           placeholder="Rechercher un film..."
         />
-        
+
         {/* Dropdown des résultats */}
         {(searchResults.length > 0 || isSearching) && (
           <div className="absolute top-full left-0 right-0 bg-white text-black rounded-lg shadow-lg max-h-96 overflow-y-auto z-50 mt-1">
@@ -102,7 +101,9 @@ export default function Header() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-sm">{movie.title}</h3>
                     <p className="text-xs text-gray-600">
-                      {movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}
+                      {movie.release_date
+                        ? new Date(movie.release_date).getFullYear()
+                        : "N/A"}
                     </p>
                     {movie.vote_average > 0 && (
                       <p className="text-xs text-yellow-600">
@@ -118,9 +119,11 @@ export default function Header() {
       </div>
 
       <div className="flex items-baseline mx-auto space-x-2 border-x border-x-gray-700 hover:border-x-blue1 hover:duration-200 p-2 md:px-6">
-        <button className="md:text-xl text-sm cursor-pointer hover:text-gray-300 duration-200">
-          Favoris
-        </button>
+        <Link href="/favorites">
+          <button className="md:text-xl text-sm cursor-pointer hover:text-gray-300 duration-200">
+            Favoris
+          </button>
+        </Link>
         <FaRegHeart className="text-yellow-500 text-base md:text-xl" />
       </div>
     </header>

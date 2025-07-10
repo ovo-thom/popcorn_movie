@@ -5,6 +5,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
+import MovieCard from "./MovieCard";
 
 export default function NowPlayingSlider({ movies }) {
   return (
@@ -27,21 +28,11 @@ export default function NowPlayingSlider({ movies }) {
     >
       {movies.map((m) => (
         <SwiperSlide key={m.id}>
-          <Link href={`/movie/${m.id}`}>
-            <div className="bg-gray-800 rounded overflow-hidden shadow-red-500/30 hover:shadow-red-600/50 hover:scale-105 transition">
-              <img
-                src={`https://image.tmdb.org/t/p/w300${m.poster_path}`}
-                alt={m.title}
-                className="w-full h-auto"
-              />
-              <div className="p-2">
-                <h3 className="text-white text-sm font-semibold truncate">
-                  {m.title}
-                </h3>
-                <p className="text-yellow-400 text-sm">⭐ {m.vote_average}</p>
-              </div>
-            </div>
-          </Link>
+          <MovieCard 
+    movie={m} 
+    linkPath={`/movie/${m.id}`}
+    size="medium"
+  />
         </SwiperSlide>
       ))}
     </Swiper>

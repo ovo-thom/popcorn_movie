@@ -1,7 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import { fetchPopularMovies } from "../../../lib/tmdb";
 import BackLink from "@/components/BackLink";
+import MovieCard from "@/components/MovieCard";
 
 export default async function PopularPage() {
   const page1 = await fetchPopularMovies(1);
@@ -28,34 +27,12 @@ export default async function PopularPage() {
         "
         >
           {uniqueMovies.map((movie) => (
-            <Link
-              key={movie.id}
-              href={`/popular/${movie.id}`}
-              className="group"
-            >
-              <div
-                className="
-                bg-gray-800 rounded-xl overflow-hidden shadow-md
-                transition-transform duration-200 group-hover:scale-105
-              "
-              >
-                <Image
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={`${movie.title} poster`}
-                  width={300}
-                  height={450}
-                  className="w-full h-auto object-cover"
-                />
-                <div className="p-2">
-                  <h3 className="text-white font-semibold text-sm truncate">
-                    {movie.title}
-                  </h3>
-                  <p className="text-yellow-400 text-xs sm:text-sm">
-                    ⭐ {movie.vote_average}
-                  </p>
-                </div>
-              </div>
-            </Link>
+            <MovieCard 
+    key={movie.id} 
+    movie={movie} 
+    linkPath={`/popular/${movie.id}`}
+    size="medium"
+  />
           ))}
         </div>
       </div>
