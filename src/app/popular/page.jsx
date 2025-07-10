@@ -11,12 +11,13 @@ export default async function PopularPage() {
   );
 
   return (
-    <section className="bg-[#121212] w-full">
+    <section className="bg-[#121212] w-full overflow-x-hidden sm:px-5">
       <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col items-center">
-        <h1 className="font-title text-2xl sm:text-3xl md:text-4xl text-white mb-6 tracking-wide">
+        <h1 className="font-title text-2xl sm:text-3xl md:text-4xl text-white mb-4 tracking-wide">
           Tous les films populaires
         </h1>
-        <BackLink className="mb-6 text-gray-100 hover:text-gray-300 duration-200 mr-auto">
+        <div className="w-20 h-[3px] bg-red1 mb-4 rounded"></div>
+        <BackLink className="mb-6 text-slate-400 hover:text-gray-300 duration-200 mr-auto">
           ← Page d'accueil
         </BackLink>
         <div

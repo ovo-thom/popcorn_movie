@@ -18,6 +18,7 @@ export default function AdvancedSearch() {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -27,6 +28,7 @@ export default function AdvancedSearch() {
   }, []);
 
   const handleSearch = async () => {
+    setHasSearched(true);
     setLoading(true);
     setPage(1);
     try {
@@ -60,7 +62,7 @@ export default function AdvancedSearch() {
   };
 
   return (
-    <section className="py-8 md:py-10 border-t border-blue1/50 bg-[#121212] text-gray-50">
+    <section className="py-8 px-5 md:py-10 border-t border-blue1/50 bg-[#121212] text-gray-50">
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
         <h2 className="font-title text-2xl md:text-3xl mb-2">
           Recherche avancée
@@ -133,7 +135,7 @@ export default function AdvancedSearch() {
           </>
         )}
 
-        {movies.length === 0 && !loading && (
+        {hasSearched && movies.length === 0 && !loading && (
           <p className="text-gray-400 mt-8">
             Aucun film trouvé. Essayez d’autres critères.
           </p>

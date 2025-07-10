@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <header className="bg-[#121212] text-[#FFFFFF] h-32 border-b border-b-red1 grid grid-cols-3 items-center relative">
       <Link href="/" className="w-fit mx-auto">
-        <div className="flex flex-col items-center text-center space-y-1">
+        <div className="flex flex-col items-center text-center">
           <h1 className="font-title text-lg lg:text-3xl font-semibold tracking-wide">
             <span className="text-red1">P</span>opCorn movie
           </h1>
