@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 PopCorn Movie
 
-## Getting Started
+Une application web moderne pour découvrir et gérer vos films favoris, alimentée par l'API TMDB.
 
-First, run the development server:
+## ✨ Fonctionnalités
+
+- 🔍 **Recherche en temps réel** avec debounce pour une expérience fluide
+- ❤️ **Système de favoris** avec persistance dans le localStorage
+- 🎯 **Recherche avancée** par genre, année et options de tri
+- 📱 **Design responsive** adapté à tous les écrans
+- 🎠 **Carrousel automatique** des films en cours de diffusion
+- 🎭 **Pages détaillées** pour chaque film avec informations complètes
+- 🎨 **Interface moderne** avec animations et effets visuels
+
+## 🛠️ Technologies utilisées
+
+- **Next.js 13+** avec App Router
+- **React** (Hooks, Context API)
+- **Tailwind CSS** pour le styling
+- **API TMDB** pour les données des films
+- **Swiper.js** pour les carrousels
+- **React Icons** pour les icônes
+
+## 🚀 Installation et utilisation
+
+1. **Cloner le projet**
+
+```bash
+git clone https://github.com/ovo-thom/popcorn_movie
+cd popcorn-movie
+```
+
+2. **Installer les dépendances**
+
+```bash
+npm install
+```
+
+3. **Configuration de l'API**
+
+- Créez un compte sur [TMDB](https://www.themoviedb.org/settings/api)
+- Obtenez votre clé API
+- Créez un fichier `.env.local` à la racine :
+
+```bash
+NEXT_PUBLIC_TMDB_API_KEY=votre_clé_api_ici
+```
+
+4. **Lancer en développement**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Structure du projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                 # Pages Next.js (App Router)
+│   ├── favorites/       # Page des favoris
+│   ├── popular/         # Films populaires
+│   └── movie/           # Détails des films
+├── components/          # Composants réutilisables
+│   ├── MovieCard.jsx    # Carte de film
+│   ├── Header.jsx       # En-tête avec recherche
+│   └── ...
+├── contexts/            # Context React
+│   └── FavoritesContext.jsx
+└── lib/                 # Utilitaires et API
+    └── tmdb.js          # Fonctions API TMDB
+```
 
-## Learn More
+## 🎯 Fonctionnalités détaillées
 
-To learn more about Next.js, take a look at the following resources:
+### Recherche
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Recherche instantanée avec debounce (300ms)
+- Dropdown avec aperçu des résultats
+- Recherche avancée multi-critères
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Favoris
 
-## Deploy on Vercel
+- Ajout/suppression d'un clic
+- Persistance locale (localStorage)
+- Page dédiée avec gestion des états vides
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Interface
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Design sombre moderne
+- Animations fluides (hover, scale, rotation)
+- Grilles responsives adaptatives
+- Carrousel automatique avec navigation
+
+## 🌐 Demo
+
+[Lien vers la démo en ligne] (à ajouter après déploiement)
+
+## 📸 Screenshots
+
+[Ajouter des captures d'écran de votre application]
+
+## 🔄 Scripts disponibles
+
+```bash
+npm run dev      # Développement
+npm run build    # Build de production
+npm run start    # Serveur de production
+npm run lint     # Vérification du code
+```
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou un pull request.
+
+## 📄 License
+
+Ce projet est sous licence MIT.
+
+---
+
+Développé avec ❤️ et beaucoup de ☕
