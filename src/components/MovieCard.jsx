@@ -45,7 +45,7 @@ export default function MovieCard({
   return (
     <div className={`${currentSize.container} ${className}`}>
       <Link href={movieLink}>
-        <div className="bg-gray-800 rounded overflow-hidden shadow-lg shadow-neutral-400/30 hover:shadow-neutral-500/50 hover:scale-105 transition-transform duration-200">
+        <div className="bg-gray-800 rounded overflow-hidden shadow-lg shadow-cyan-400/30 hover:shadow-cyan-500/50 hover:scale-105 transition-transform duration-200">
           <div className="relative">
             {movie.poster_path ? (
               <img
