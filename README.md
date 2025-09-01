@@ -95,11 +95,11 @@ src/
 
 ## 🌐 Demo
 
-[Lien vers la démo en ligne] (à ajouter après déploiement)
+https://popcorn-movie-two.vercel.app/
 
 ## 📸 Screenshots
 
-[Ajouter des captures d'écran de votre application]
+![Aperçu de l’application](/public/homepage.png)
 
 ## 🔄 Scripts disponibles
 
