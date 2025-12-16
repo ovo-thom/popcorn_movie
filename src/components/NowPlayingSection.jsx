@@ -7,7 +7,7 @@ export default async function NowPlayingSection() {
 
   return (
     <section className="py-8 sm:py-16 border-t border-t-cyan-500/50 w-full px-6 flex flex-col items-center justify-center">
-      <SectionTitle underlineWidth="w-28">
+      <SectionTitle underlineWidth="w-28 mb-8">
         Films recommandés&nbsp;/&nbsp;Nouveautés
       </SectionTitle>
 
